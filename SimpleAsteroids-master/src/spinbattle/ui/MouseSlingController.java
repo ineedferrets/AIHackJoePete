@@ -71,7 +71,7 @@ public class MouseSlingController extends MouseAdapter {
             Planet source = gameState.planets.get(planetSelected);
             Transporter transit = source.getTransporter();
             // shift nShips per unit
-            transit.incPayload(source, nShipsPerTick);
+            transit.incPayload(source, Math.log(gameState.nTicks) * 0.1);
             // System.out.println("Incrementing: " + transit.payload);
         }
         return this;

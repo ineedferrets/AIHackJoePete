@@ -21,7 +21,9 @@ public class ProximityMap {
             for (int x = (int) p.position.x -rad; x <= (int) p.position.x + rad; x++) {
                 for (int y = (int) p.position.y - rad; y <= (int) p.position.y + rad; y++) {
                     if (new Vector2d(x, y).dist(p.position) <= rad) {
-                        inRange[x][y] = p.index;
+                        if(x >= 0 && y >= 0 && x < gameState.params.width && y < gameState.params.height){
+                            inRange[x][y] = p.index;
+                        }
                     }
                 }
             }

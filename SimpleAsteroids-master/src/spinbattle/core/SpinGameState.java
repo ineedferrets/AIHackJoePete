@@ -64,6 +64,7 @@ public class SpinGameState implements AbstractGameState {
 
     @Override
     public AbstractGameState next(int[] actions) {
+        if(params.useProximityMap) proximityMap = new ProximityMap().setPlanets(this);
         for (int i=0; i<nPlayers; i++) {
             if (actuators[i] != null)
                 actuators[i].actuate(actions[i], this);

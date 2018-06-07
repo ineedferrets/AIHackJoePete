@@ -32,15 +32,15 @@ public class SpinBattleParams {
     // the number to allocate to each player
     public int nToAllocate = 4;
 
-    public double minGrowth = 0.05;
-    public double maxGrowth = 0.15;
+    public double minGrowth = 0.01;
+    public double maxGrowth = 0.05;
 
     public double spinRatio = 0.4;
 
     public int minInitialShips = 5;
     public int maxInitialShips = 20;
 
-    public double transitSpeed = 3;
+    public double transitSpeed = 0.5;
 
     // this is for a heuristic AI opponent
     public int releasePeriod = 400;
@@ -84,8 +84,8 @@ public class SpinBattleParams {
     // but adjusting both of them gives a clumsy way to control the display
     // of the field (which should really be done in the CaveView class
     // todo: collapse in to a single constant, and add a separate cosmetic param to control draw length of vectors
-    public double gravitationalFieldConstant = 1.2;
-    public double gravitationalForceConstant = 0.001;
+    public double gravitationalFieldConstant = 10;
+    public double gravitationalForceConstant = 0.00001;
 
     public static Random random = new Random();
 

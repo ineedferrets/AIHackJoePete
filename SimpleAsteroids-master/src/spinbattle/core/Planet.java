@@ -20,6 +20,8 @@ public class Planet {
     SpinBattleParams params;
     Transporter transit;
 
+    private double currentGrowthRate;
+
     public Planet copy() {
         Planet planet = new Planet();
         // shallow copy position on the assumption that it will not change
@@ -31,6 +33,7 @@ public class Planet {
         planet.ownedBy = ownedBy;
         planet.params = params;
         planet.index = index;
+        planet.currentGrowthRate = currentGrowthRate;
         if (transit !=  null)
             planet.transit = transit.copy();
         return planet;
@@ -56,8 +59,11 @@ public class Planet {
 
     // todo: Probably here the trajectory update and termination needs to be done
     public Planet update(SpinGameState gameState) {
+        setCurrentGrowthRate(gameState.nTicks);
         if (ownedBy != Constants.neutralPlayer) {
             shipCount += growthRate;
+        } else {
+            shipCount += (growthRate / 4);
         }
         if (transit != null && transit.inTransit()) {
             transit.next(gameState.vectorField);
@@ -114,11 +120,22 @@ public class Planet {
         rotationRate = params.spinRatio * (params.getRandom().nextDouble() + 1);
         if (params.getRandom().nextDouble() < 0.5) rotationRate = -rotationRate;
         rotationRate *= Math.PI * 2.0 / 100;
+        setCurrentGrowthRate(0);
         return this;
     }
 
+    public double getCurrentGrowthRate(){
+        return currentGrowthRate;
+    }
+
+    private void setCurrentGrowthRate(int nticks){
+        double maxMinDiff = params.maxGrowth - params.minGrowth;
+        double multiplier = Math.sin(nticks / 5 * growthRate + growthRate);
+        currentGrowthRate = Math.abs(multiplier * maxMinDiff) + params.minGrowth;
+    }
+
     public int getRadius() {
-        return (int) (Constants.growthRateToRadius * growthRate);
+        return (int) (Constants.growthRateToRadius * currentGrowthRate);
     }
 
     public String toString() {

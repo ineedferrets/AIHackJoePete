@@ -8,7 +8,7 @@ public interface Constants {
 
     // might move this to params
     // since radius has an effect on game play
-    int growthRateToRadius = 250;
+    int growthRateToRadius = 500;
 
     // moved radSep in to params: it is an interesting thing to evolve
     // double radSep = 1.5;
