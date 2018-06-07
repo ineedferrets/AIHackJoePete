@@ -130,7 +130,7 @@ public class Planet {
 
     private void setCurrentGrowthRate(int nticks){
         double maxMinDiff = params.maxGrowth - params.minGrowth;
-        double multiplier = Math.sin(nticks / 10 * growthRate + growthRate);
+        double multiplier = Math.sin(nticks / 5 * growthRate + growthRate);
         currentGrowthRate = Math.abs(multiplier * maxMinDiff) + params.minGrowth;
     }
 
