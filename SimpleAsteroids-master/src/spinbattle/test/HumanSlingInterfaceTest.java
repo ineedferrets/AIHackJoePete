@@ -15,6 +15,7 @@ import spinbattle.ui.MouseSlingController;
 import spinbattle.ui.SourceTargetMouseController;
 import spinbattle.view.SpinBattleView;
 import utilities.JEasyFrame;
+import controllers.multiPlayer.discountOLMCTS.*;
 
 import java.util.Random;
 
@@ -53,6 +54,8 @@ public class HumanSlingInterfaceTest {
 
         //int launchPeriod = 400; // params.releasePeriod;
         waitUntilReady(view);
+
+        SimplePlayerInterface mctsAgent = new Agent();
 
         SimplePlayerInterface evoAgent = new EvoAgentFactory().getAgent().setVisual();
         evoAgent = new FalseModelAdapter().setParams(params).setPlayer(evoAgent);
