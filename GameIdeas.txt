@@ -1,0 +1,5 @@
+1) Morale addition:
+   IF ((P1 ship attacks a planet owned by P2) AND (P1 ship has population twice as big as the population of the planet owned by P2))
+   THEN (P1 planet gets half the population of population of planet when P2 owned it)
+2) Neptunes pride:
+   Mad low travel time

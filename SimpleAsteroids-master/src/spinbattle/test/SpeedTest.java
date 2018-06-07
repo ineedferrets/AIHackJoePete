@@ -1,13 +1,22 @@
 package spinbattle.test;
 
+import core.player.AbstractMultiPlayer;
+import ggi.core.SimplePlayerInterface;
+import gvglink.PlanetWarsLinkState;
+import gvglink.SpinBattleLinkState;
+import planetwar.GVGAIWrapper;
+import planetwar.GameState;
 import spinbattle.core.SpinGameState;
 import spinbattle.params.Constants;
 import spinbattle.params.SpinBattleParams;
 import spinbattle.players.HeuristicLauncher;
+import tools.ElapsedCpuTimer;
 import utilities.ElapsedTimer;
 import utilities.StatSummary;
 
 public class SpeedTest {
+
+
 
     static StatSummary constructionTime = new StatSummary("Construction Time");
     static StatSummary runningTime = new StatSummary("Running Time");
@@ -57,6 +66,8 @@ public class SpeedTest {
         SpinGameState gameState = new SpinGameState().setParams(params).setPlanets();
         HeuristicLauncher launcher = new HeuristicLauncher();
 
+        SimplePlayerInterface mctsPlayer = getMCTSAgent(gameState, Constants.playerTwo);
+
         constructionTime.add(t.elapsed());
 
         t = new ElapsedTimer();
@@ -70,5 +81,17 @@ public class SpeedTest {
         }
         runningTime.add(t.elapsed());
         return gameState;
+    }
+
+
+    static GVGAIWrapper getMCTSAgent(SpinGameState gameState, int playerId) {
+        ElapsedCpuTimer timer = new ElapsedCpuTimer();
+        SpinBattleLinkState linkState = new SpinBattleLinkState(gameState);
+        AbstractMultiPlayer agent =
+                new controllers.multiPlayer.discountOLMCTS.Agent(linkState.copy(), timer, playerId);
+
+        GVGAIWrapper wrapper = new GVGAIWrapper().setAgent(agent);
+        return wrapper;
+
     }
 }

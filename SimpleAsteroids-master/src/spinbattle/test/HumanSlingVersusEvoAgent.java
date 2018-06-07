@@ -36,16 +36,18 @@ public class HumanSlingVersusEvoAgent {
         String title = "Spin Battle Game" ;
         JEasyFrame frame = new JEasyFrame(view, title + ": Waiting for Graphics");
         frame.setLocation(400, 100);
+
         MouseSlingController mouseSlingController = new MouseSlingController();
         mouseSlingController.setGameState(gameState).setPlayerId(Constants.playerOne);
         view.addMouseListener(mouseSlingController);
+
         waitUntilReady(view);
 
         SimplePlayerInterface evoAgent = new EvoAgentFactory().getAgent().setVisual();
         SpinBattleParams falseParams = new SpinBattleParams();
         falseParams.transitSpeed = 0;
         falseParams.gravitationalFieldConstant = 0;
-        evoAgent = new FalseModelAdapter().setParams(falseParams).setPlayer(evoAgent);
+        evoAgent = new FalseModelAdapter().setParams(params).setPlayer(evoAgent);
         int[] actions = new int[2];
 
 
