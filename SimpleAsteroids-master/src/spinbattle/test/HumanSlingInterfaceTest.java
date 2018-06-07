@@ -1,6 +1,11 @@
 package spinbattle.test;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+import ggi.agents.EvoAgentFactory;
+import ggi.core.SimplePlayerInterface;
 import logger.sample.DefaultLogger;
+import spinbattle.actuator.SourceTargetActuator;
+import spinbattle.core.FalseModelAdapter;
 import spinbattle.core.SpinGameState;
 import spinbattle.log.BasicLogger;
 import spinbattle.params.Constants;
@@ -32,6 +37,7 @@ public class HumanSlingInterfaceTest {
         System.out.println("Selected n planets: " + params.nPlanets);
 
         SpinGameState gameState = new SpinGameState().setParams(params).setPlanets();
+        gameState.actuators[Constants.playerTwo] = new SourceTargetActuator().setPlayerId(Constants.playerTwo);
         System.out.println("nPlanets made = " + gameState.planets.size());
         // BasicLogger basicLogger = new BasicLogger();
         // gameState.setLogger(new DefaultLogger());
@@ -41,21 +47,23 @@ public class HumanSlingInterfaceTest {
         JEasyFrame frame = new JEasyFrame(view, title + ": Waiting for Graphics");
         frame.setLocation(400, 100);
 
-
-
         MouseSlingController mouseSlingController = new MouseSlingController();
         mouseSlingController.setGameState(gameState).setPlayerId(Constants.playerOne);
         view.addMouseListener(mouseSlingController);
 
-        int launchPeriod = 400; // params.releasePeriod;
+        //int launchPeriod = 400; // params.releasePeriod;
         waitUntilReady(view);
 
+        SimplePlayerInterface evoAgent = new EvoAgentFactory().getAgent().setVisual();
+        evoAgent = new FalseModelAdapter().setParams(params).setPlayer(evoAgent);
+        int[] actions = new int[2];
+
         for (int i=0; i<=5000 && !gameState.isTerminal(); i++) {
-            gameState.next(null);
+            actions[Constants.playerTwo] = evoAgent.getAction(gameState.copy(), Constants.playerTwo);
+            System.out.println(actions[Constants.playerTwo]);
+            gameState.next(actions);
             mouseSlingController.update();
             // launcher.makeTransits(gameState, Constants.playerOne);
-            if (i % launchPeriod == 0)
-                launcher.makeTransits(gameState, Constants.playerTwo);
             view.setGameState((SpinGameState) gameState.copy());
             view.repaint();
             frame.setTitle(title + " : " + i); //  + " : " + CaveView.getTitle());

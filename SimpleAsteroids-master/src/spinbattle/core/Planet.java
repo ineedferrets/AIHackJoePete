@@ -72,7 +72,7 @@ public class Planet {
                     ParticleEffect effect = new ParticleEffect().setPosition(destination.position);
                     effect.setNParticle(20);
                     // System.out.println(effect);
-                    gameState.logger.logEffect(effect);
+                    // gameState.logger.logEffect(effect);
                 }
                 // transit
                 // System.out.println("Terminated Journey: " + transit.inTransit());
