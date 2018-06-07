@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SpinBattleView extends JComponent {
-    static int nParticles = 10000;
+    static int nParticles = 100000;
     SpinBattleParams params;
     SpinGameState gameState;
     Color bg = Color.black;

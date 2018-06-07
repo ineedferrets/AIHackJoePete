@@ -84,7 +84,7 @@ public class SpinBattleParams {
     // but adjusting both of them gives a clumsy way to control the display
     // of the field (which should really be done in the CaveView class
     // todo: collapse in to a single constant, and add a separate cosmetic param to control draw length of vectors
-    public double gravitationalFieldConstant = 10;
+    public double gravitationalFieldConstant = 5;
     public double gravitationalForceConstant = 0.00001;
 
     public static Random random = new Random();
