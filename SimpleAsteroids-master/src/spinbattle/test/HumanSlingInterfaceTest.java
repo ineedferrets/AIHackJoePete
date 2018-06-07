@@ -14,8 +14,10 @@ import spinbattle.players.HeuristicLauncher;
 import spinbattle.ui.MouseSlingController;
 import spinbattle.ui.SourceTargetMouseController;
 import spinbattle.view.SpinBattleView;
+import sun.java2d.pipe.SpanShapeRenderer;
 import utilities.JEasyFrame;
 import controllers.multiPlayer.discountOLMCTS.*;
+import planetwar.*;
 
 import java.util.Random;
 
@@ -55,14 +57,16 @@ public class HumanSlingInterfaceTest {
         //int launchPeriod = 400; // params.releasePeriod;
         waitUntilReady(view);
 
-        SimplePlayerInterface mctsAgent = new Agent();
+        //SimplePlayerInterface mctsAgent = new GVGAIWrapper().setAgent(new Agent(gameState,null, Constants.playerTwo));
 
-        SimplePlayerInterface evoAgent = new EvoAgentFactory().getAgent().setVisual();
-        evoAgent = new FalseModelAdapter().setParams(params).setPlayer(evoAgent);
+        SimplePlayerInterface mctsAgent = SpeedTest.getMCTSAgent(gameState, Constants.playerTwo);
+
+        //SimplePlayerInterface evoAgent = new EvoAgentFactory().getAgent().setVisual();
+        //evoAgent = new FalseModelAdapter().setParams(params).setPlayer(evoAgent);
         int[] actions = new int[2];
 
         for (int i=0; i<=5000 && !gameState.isTerminal(); i++) {
-            actions[Constants.playerTwo] = evoAgent.getAction(gameState.copy(), Constants.playerTwo);
+            actions[Constants.playerTwo] = mctsAgent.getAction(gameState.copy(), Constants.playerTwo);
             System.out.println(actions[Constants.playerTwo]);
             gameState.next(actions);
             mouseSlingController.update();
