@@ -127,7 +127,7 @@ public class SpinBattleView extends JComponent {
     private void paintPlanets(Graphics2D g) {
         for (Planet p : gameState.planets) {
             g.setColor(playerColors[p.ownedBy]);
-            int rad = (int) (p.growthRate * growthRateToRadius);
+            int rad = (int) (p.getCurrentGrowthRate() * growthRateToRadius);
             int cx = (int) p.position.x, cy = (int) p.position.y;
             g.fillOval(cx-rad, cy-rad, 2* rad, 2* rad);
             // now show it's rotation if non-neutral
