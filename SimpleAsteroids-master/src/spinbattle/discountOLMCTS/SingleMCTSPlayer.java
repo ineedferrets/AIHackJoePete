@@ -1,8 +1,7 @@
-package controllers.multiPlayer.discountOLMCTS;
+package spinbattle.discountOLMCTS;
 
 import core.game.StateObservationMulti;
 import ontology.Types;
-import ropegame.RopeGameState;
 import tools.ElapsedCpuTimer;
 
 import java.util.Random;
@@ -31,13 +30,21 @@ public class SingleMCTSPlayer
     public Random m_rnd;
     public int id, oppID, no_players;
 
-    public SingleMCTSPlayer(Random a_rnd, int[] NUM_ACTIONS, Types.ACTIONS[][] actions, int id, int oppID, int n_players) {
+    public int ROLLOUT_DEPTH;
+    public double DISCOUNT_FACTOR;
+    public double K;
+
+    public SingleMCTSPlayer(Random a_rnd, int[] NUM_ACTIONS, Types.ACTIONS[][] actions, int id, int oppID, int n_players,
+                            int ROLLOUT_DEPTH, double DISCOUNT_FACTOR, double K) {
         m_rnd = a_rnd;
         this.NUM_ACTIONS = NUM_ACTIONS;
         this.actions = actions;
         this.id = id;
         this.oppID = oppID;
         this.no_players = n_players;
+        this.ROLLOUT_DEPTH = ROLLOUT_DEPTH;
+        this.DISCOUNT_FACTOR = DISCOUNT_FACTOR;
+        this.K = K;
     }
 
     /**
@@ -48,7 +55,7 @@ public class SingleMCTSPlayer
     {
         //Set the game observation to a newly root node.
         //System.out.println("learning_style = " + learning_style);
-        m_root = new SingleTreeNode(m_rnd, NUM_ACTIONS, actions, id, oppID, no_players);
+        m_root = new SingleTreeNode(m_rnd, ROLLOUT_DEPTH, DISCOUNT_FACTOR, K, NUM_ACTIONS, actions, id, oppID, no_players);
         m_root.rootState = a_gameState;
     }
 

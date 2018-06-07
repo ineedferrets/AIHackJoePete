@@ -17,6 +17,11 @@ import tools.ElapsedCpuTimer;
  */
 
 public class GeneralGameRunnerTest {
+
+    public static int ROLLOUT_DEPTH = 10;
+    public static double DISCOUNT_FACTOR = 1.00;
+    public static double K = Math.sqrt(2);
+
     public static void main(String[] args) {
         PlanetWarsLinkState linkState = new PlanetWarsLinkState();
         GeneralGameRunner runner = new GeneralGameRunner().setGame(linkState).setLength(200);

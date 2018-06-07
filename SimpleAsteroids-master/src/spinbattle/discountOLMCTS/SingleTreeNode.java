@@ -1,11 +1,10 @@
-package controllers.multiPlayer.discountOLMCTS;
+package spinbattle.discountOLMCTS;
 
 import core.game.StateObservationMulti;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
 import tools.Utils;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class SingleTreeNode
@@ -35,11 +34,11 @@ public class SingleTreeNode
 
     public static int nIts = 0;
 
-    public SingleTreeNode(Random rnd, int[] NUM_ACTIONS, Types.ACTIONS[][] actions, int id, int oppID, int no_players) {
-        this(null, -1, rnd, id, oppID, no_players, NUM_ACTIONS, actions);
+    public SingleTreeNode(Random rnd, int ROLLOUT_DEPTH, double REWARD_DISCOUNT, double K, int[] NUM_ACTIONS, Types.ACTIONS[][] actions, int id, int oppID, int no_players) {
+        this(null, -1, rnd, ROLLOUT_DEPTH, REWARD_DISCOUNT, K, id, oppID, no_players, NUM_ACTIONS, actions);
     }
 
-    public SingleTreeNode(SingleTreeNode parent, int childIdx, Random rnd, int id, int oppID, int no_players, int[] NUM_ACTIONS, Types.ACTIONS[][] actions) {
+    public SingleTreeNode(SingleTreeNode parent, int childIdx, Random rnd, int ROLLOUT_DEPTH, double REWARD_DISCOUNT, double K, int id, int oppID, int no_players, int[] NUM_ACTIONS, Types.ACTIONS[][] actions) {
         this.id = id;
         this.oppID = oppID;
         this.no_players = no_players;
@@ -54,6 +53,10 @@ public class SingleTreeNode
         this.NUM_ACTIONS = NUM_ACTIONS;
         children = new SingleTreeNode[NUM_ACTIONS[id]];
         this.actions = actions;
+
+        this.ROLLOUT_DEPTH = ROLLOUT_DEPTH;
+        this.REWARD_DISCOUNT = REWARD_DISCOUNT;
+        this.K = K;
     }
 
 
@@ -138,7 +141,7 @@ public class SingleTreeNode
 
         state.advance(acts);
 
-        SingleTreeNode tn = new SingleTreeNode(this,bestAction,this.m_rnd, id, oppID, no_players, NUM_ACTIONS, actions);
+        SingleTreeNode tn = new SingleTreeNode(this,bestAction,this.m_rnd, this.ROLLOUT_DEPTH, this.REWARD_DISCOUNT, this.K, id, oppID, no_players, NUM_ACTIONS, actions);
         children[bestAction] = tn;
         return tn;
     }

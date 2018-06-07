@@ -1,4 +1,4 @@
-package controllers.multiPlayer.discountOLMCTS;
+package spinbattle.discountOLMCTS;
 
 import core.game.StateObservationMulti;
 import core.player.AbstractMultiPlayer;
@@ -23,12 +23,20 @@ public class Agent extends AbstractMultiPlayer {
 
     protected SingleMCTSPlayer mctsPlayer;
 
+    public int ROLLOUT_DEPTH = 10;
+    public double DISCOUNT_FACTOR = 1.00;
+    public double K = Math.sqrt(2);
+
     /**
      * Public constructor with state observation and time due.
      * @param so state observation of the current game.
      * @param elapsedCpuTimer Timer for the controller creation.
      */
-    public Agent(StateObservationMulti so, ElapsedCpuTimer elapsedCpuTimer, int playerID) {
+    public Agent(StateObservationMulti so, ElapsedCpuTimer elapsedCpuTimer, int playerID, int ROLLOUT_DEPTH, double DISCOUNT_FACTOR, double K) {
+        this.ROLLOUT_DEPTH = ROLLOUT_DEPTH;
+        this.DISCOUNT_FACTOR = DISCOUNT_FACTOR;
+        this.K = K;
+
         //get game information
 
         no_players = so.getNoPlayers();
@@ -54,7 +62,7 @@ public class Agent extends AbstractMultiPlayer {
     }
 
     public SingleMCTSPlayer getPlayer(StateObservationMulti so, ElapsedCpuTimer elapsedTimer, int[] NUM_ACTIONS, Types.ACTIONS[][] actions, int id, int oppID, int no_players) {
-        return new SingleMCTSPlayer(new Random(), NUM_ACTIONS, actions, id, oppID, no_players);
+        return new SingleMCTSPlayer(new Random(), NUM_ACTIONS, actions, id, oppID, no_players, ROLLOUT_DEPTH, DISCOUNT_FACTOR, K);
     }
 
 

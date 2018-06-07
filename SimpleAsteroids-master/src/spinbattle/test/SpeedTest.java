@@ -13,10 +13,13 @@ import spinbattle.players.HeuristicLauncher;
 import tools.ElapsedCpuTimer;
 import utilities.ElapsedTimer;
 import utilities.StatSummary;
+import spinbattle.discountOLMCTS.Agent;
 
 public class SpeedTest {
 
-
+    public static int ROLLOUT_DEPTH = 10;
+    public static double DISCOUNT_FACTOR = 1.00;
+    public static double K = Math.sqrt(2);
 
     static StatSummary constructionTime = new StatSummary("Construction Time");
     static StatSummary runningTime = new StatSummary("Running Time");
@@ -88,7 +91,8 @@ public class SpeedTest {
         ElapsedCpuTimer timer = new ElapsedCpuTimer();
         SpinBattleLinkState linkState = new SpinBattleLinkState(gameState);
         AbstractMultiPlayer agent =
-                new controllers.multiPlayer.discountOLMCTS.Agent(linkState.copy(), timer, playerId);
+                new Agent(linkState.copy(), timer, playerId,
+                        ROLLOUT_DEPTH, DISCOUNT_FACTOR, K);
 
         GVGAIWrapper wrapper = new GVGAIWrapper().setAgent(agent);
         return wrapper;
