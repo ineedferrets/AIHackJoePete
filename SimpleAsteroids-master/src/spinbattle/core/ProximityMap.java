@@ -17,7 +17,7 @@ public class ProximityMap {
         // within its circular radius
         inRange = new Integer[gameState.params.width][gameState.params.height];
         for (Planet p : gameState.planets) {
-            int rad = p.getRadius();
+            int rad = p.getRadius() * 5;
             for (int x = (int) p.position.x -rad; x <= (int) p.position.x + rad; x++) {
                 for (int y = (int) p.position.y - rad; y <= (int) p.position.y + rad; y++) {
                     if (new Vector2d(x, y).dist(p.position) <= rad) {
