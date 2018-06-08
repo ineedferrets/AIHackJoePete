@@ -4,7 +4,7 @@ import logger.core.CorrelationLogger;
 import logger.core.TrajectoryLogger;
 import logger.util.EntropyLogger;
 import logger.view.TrajectoryView;
-import spinbattle.view.ParticleEffect;
+import hplovecraftspinbattle.view.ParticleEffect;
 import utilities.JEasyFrame;
 import utilities.SideStack;
 

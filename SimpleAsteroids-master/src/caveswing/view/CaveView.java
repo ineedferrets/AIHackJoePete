@@ -4,7 +4,7 @@ import caveswing.core.Anchor;
 import caveswing.core.CaveGameState;
 import caveswing.core.CaveSwingParams;
 import math.Vector2d;
-import spinbattle.util.DrawUtil;
+import hplovecraftspinbattle.util.DrawUtil;
 
 import javax.swing.*;
 import java.awt.*;

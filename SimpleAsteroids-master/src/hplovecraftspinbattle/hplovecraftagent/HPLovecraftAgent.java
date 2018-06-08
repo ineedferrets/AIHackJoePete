@@ -1,4 +1,4 @@
-package agents.evo;
+package hplovecraftspinbattle.hplovecraftagent;
 
 import agents.dummy.DoNothingAgent;
 import evodef.EvoAlg;
@@ -23,7 +23,7 @@ import java.awt.*;
  *  but this is a simpler approach that enables
  */
 
-public class EvoAgent implements SimplePlayerInterface {
+public class HPLovecraftAgent implements SimplePlayerInterface {
 
     ActionSequencer actionSequencer;
     public EvoAlg evoAlg;
@@ -31,7 +31,7 @@ public class EvoAgent implements SimplePlayerInterface {
     RegularSearchSpace searchSpace;
 
     // static int nActions = AsteroidsGameState.nActions;
-    public int sequenceLength = 100;
+    public int sequenceLength = 2000;
     public boolean useShiftBuffer = true;
     public int[] solution;
     public int nEvals;
@@ -42,12 +42,14 @@ public class EvoAgent implements SimplePlayerInterface {
         solution = null;
         actionSequencer = new ActionSequencer();
 
+
+
         // todo: find the BUG!!!
         System.out.println("Called reset!!!!");
         return this;
     }
 
-    public EvoAgent setEvoAlg(EvoAlg evoAlg, int nEvals) {
+    public HPLovecraftAgent setEvoAlg(EvoAlg evoAlg, int nEvals) {
         this.evoAlg = evoAlg;
         this.nEvals = nEvals;
         // set up the search space and other helpers at the same time
@@ -55,32 +57,32 @@ public class EvoAgent implements SimplePlayerInterface {
         return this;
     }
 
-    public EvoAgent setUseShiftBuffer(boolean useShiftBuffer) {
+    public HPLovecraftAgent setUseShiftBuffer(boolean useShiftBuffer) {
         this.useShiftBuffer = useShiftBuffer;
         return this;
     }
 
     Dimension dimension = new Dimension(800, 600);
 
-    public EvoAgent setDimension(Dimension dimension) {
+    public HPLovecraftAgent setDimension(Dimension dimension) {
         this.dimension = dimension;
         return this;
     }
 
-    public EvoAgent setVisual() {
+    public HPLovecraftAgent setVisual() {
         playoutPlotter = new PlayoutPlotter().setDimension(dimension);
         playoutPlotter.startPlot(sequenceLength);
         return this;
     }
 
-    public EvoAgent setSequenceLength(int sequenceLength) {
+    public HPLovecraftAgent setSequenceLength(int sequenceLength) {
         this.sequenceLength = sequenceLength;
         return this;
     }
 
     SimplePlayerInterface opponent = new DoNothingAgent();
 
-    public EvoAgent setOpponent(SimplePlayerInterface opponent) {
+    public HPLovecraftAgent setOpponent(SimplePlayerInterface opponent) {
         this.opponent = opponent;
         return this;
     }

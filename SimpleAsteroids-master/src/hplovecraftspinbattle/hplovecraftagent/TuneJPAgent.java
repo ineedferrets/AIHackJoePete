@@ -1,14 +1,12 @@
-package hyperopt;
+package hplovecraftspinbattle.hplovecraftagent;
 
-import caveswing.design.CaveSwingGameSearchSpace;
-import caveswing.solutions.CaveSwingGameSkillSpace;
 import evodef.AnnotatedFitnessSpace;
-// import ntuple.NTupleBanditEA;
+import hyperopt.HyperParamTuneRunner;
 import ntbea.NTupleBanditEA;
 import ntbea.NTupleSystem;
 import utilities.ElapsedTimer;
 
-public class TuneCaveSwingParams {
+public class TuneJPAgent {
     public static void main(String[] args) {
         int nEvals = 200;
         System.out.println("Optimization budget: " + nEvals);
@@ -17,12 +15,12 @@ public class TuneCaveSwingParams {
         NTupleSystem model = new NTupleSystem();
         // set up a non-standard tuple pattern
         model.use1Tuple = true;
-        model.use2Tuple = true;
-        model.useNTuple = true;
+        //model.use2Tuple = true;
+        //model.useNTuple = true;
 
         ntbea.setModel(model);
 
-        int nChecks = 50;
+        int nChecks = 1;
         int nTrials = 1;
 
         ElapsedTimer timer = new ElapsedTimer();
@@ -39,13 +37,12 @@ public class TuneCaveSwingParams {
         // set to zero for fastest performance, set to 5 or 10 to learn
         // more about the convergence of the algorithm
         runner.plotChecks = 0;
-        AnnotatedFitnessSpace caveSwingSpace = new CaveSwingGameSearchSpace();
+        AnnotatedFitnessSpace caveSwingSpace = new HPLovecraftAgentSearchSpace();
         // uncomment to run the skilful one
-         caveSwingSpace = new CaveSwingGameSkillSpace();
+        // caveSwingSpace = new CaveSwingGameSkillSpace();
         System.out.println("Testing: " + ntbea);
         runner.runTrials(ntbea, caveSwingSpace);
         System.out.println("Finished testing: " + ntbea);
         System.out.println("Time for all experiments: " + timer);
     }
-
 }

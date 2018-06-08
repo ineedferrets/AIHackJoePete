@@ -1,10 +1,10 @@
-<array type="spinbattle.core.SpinGameState" length="2" id="0">
-  <object type="spinbattle.core.SpinGameState" id="1">
+<array type="hplovecraftspinbattle.core.SpinGameState" length="2" id="0">
+  <object type="hplovecraftspinbattle.core.SpinGameState" id="1">
     <field name="totalTicks" type="int" value="0" />
     <field name="totalInstances" type="int" value="2" />
     <field name="nTicks" type="int" value="0" />
     <field name="params">
-      <object type="spinbattle.params.SpinBattleParams" id="2">
+      <object type="hplovecraftspinbattle.params.SpinBattleParams" id="2">
         <field name="width" type="int" value="700" />
         <field name="height" type="int" value="400" />
         <field name="maxTicks" type="int" value="100" />
@@ -30,7 +30,7 @@
           </object>
         </field>
         <field name="collider">
-          <object type="spinbattle.core.Collider" id="4" />
+          <object type="hplovecraftspinbattle.core.Collider" id="4" />
         </field>
         <field name="playerColors">
           <array type="java.awt.Color" length="2" id="5">
@@ -68,7 +68,7 @@
       <object type="java.util.ArrayList" id="8">
         <field name="elementData">
           <array type="java.lang.Object" length="22" id="9">
-            <object type="spinbattle.core.Planet" id="10">
+            <object type="hplovecraftspinbattle.core.Planet" id="10">
               <field name="position">
                 <object type="math.Vector2d" id="11">
                   <field name="x" type="double" value="554.20865145194" />
@@ -88,7 +88,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="12">
+            <object type="hplovecraftspinbattle.core.Planet" id="12">
               <field name="position">
                 <object type="math.Vector2d" id="13">
                   <field name="x" type="double" value="254.0144977456397" />
@@ -108,7 +108,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="14">
+            <object type="hplovecraftspinbattle.core.Planet" id="14">
               <field name="position">
                 <object type="math.Vector2d" id="15">
                   <field name="x" type="double" value="84.60072166896346" />
@@ -128,7 +128,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="16">
+            <object type="hplovecraftspinbattle.core.Planet" id="16">
               <field name="position">
                 <object type="math.Vector2d" id="17">
                   <field name="x" type="double" value="405.43230629566" />
@@ -148,7 +148,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="18">
+            <object type="hplovecraftspinbattle.core.Planet" id="18">
               <field name="position">
                 <object type="math.Vector2d" id="19">
                   <field name="x" type="double" value="112.65924915153028" />
@@ -168,7 +168,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="20">
+            <object type="hplovecraftspinbattle.core.Planet" id="20">
               <field name="position">
                 <object type="math.Vector2d" id="21">
                   <field name="x" type="double" value="524.3302858778451" />
@@ -188,7 +188,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="22">
+            <object type="hplovecraftspinbattle.core.Planet" id="22">
               <field name="position">
                 <object type="math.Vector2d" id="23">
                   <field name="x" type="double" value="594.6001170031866" />
@@ -208,7 +208,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="24">
+            <object type="hplovecraftspinbattle.core.Planet" id="24">
               <field name="position">
                 <object type="math.Vector2d" id="25">
                   <field name="x" type="double" value="431.54935936088833" />
@@ -228,7 +228,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="26">
+            <object type="hplovecraftspinbattle.core.Planet" id="26">
               <field name="position">
                 <object type="math.Vector2d" id="27">
                   <field name="x" type="double" value="597.600876676079" />
@@ -248,7 +248,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="28">
+            <object type="hplovecraftspinbattle.core.Planet" id="28">
               <field name="position">
                 <object type="math.Vector2d" id="29">
                   <field name="x" type="double" value="224.14028188579803" />
@@ -268,7 +268,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="30">
+            <object type="hplovecraftspinbattle.core.Planet" id="30">
               <field name="position">
                 <object type="math.Vector2d" id="31">
                   <field name="x" type="double" value="89.53849582112124" />
@@ -288,7 +288,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="32">
+            <object type="hplovecraftspinbattle.core.Planet" id="32">
               <field name="position">
                 <object type="math.Vector2d" id="33">
                   <field name="x" type="double" value="376.606294666922" />
@@ -308,7 +308,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="34">
+            <object type="hplovecraftspinbattle.core.Planet" id="34">
               <field name="position">
                 <object type="math.Vector2d" id="35">
                   <field name="x" type="double" value="493.1433429454037" />
@@ -328,7 +328,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="36">
+            <object type="hplovecraftspinbattle.core.Planet" id="36">
               <field name="position">
                 <object type="math.Vector2d" id="37">
                   <field name="x" type="double" value="148.13609107412123" />
@@ -348,7 +348,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="38">
+            <object type="hplovecraftspinbattle.core.Planet" id="38">
               <field name="position">
                 <object type="math.Vector2d" id="39">
                   <field name="x" type="double" value="25.55747578633679" />
@@ -368,7 +368,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="40">
+            <object type="hplovecraftspinbattle.core.Planet" id="40">
               <field name="position">
                 <object type="math.Vector2d" id="41">
                   <field name="x" type="double" value="657.0178239005737" />
@@ -411,19 +411,19 @@
     </field>
     <field name="nPlayers" type="int" value="2" />
     <field name="actuators">
-      <array type="spinbattle.actuator.Actuator" length="2" id="42">
+      <array type="hplovecraftspinbattle.actuator.Actuator" length="2" id="42">
         <object />
         <object />
       </array>
     </field>
     <field name="maxTries" type="int" value="200" />
   </object>
-  <object type="spinbattle.core.SpinGameState" id="43">
+  <object type="hplovecraftspinbattle.core.SpinGameState" id="43">
     <field name="totalTicks" type="int" value="0" />
     <field name="totalInstances" type="int" value="2" />
     <field name="nTicks" type="int" value="0" />
     <field name="params">
-      <object type="spinbattle.params.SpinBattleParams" id="44">
+      <object type="hplovecraftspinbattle.params.SpinBattleParams" id="44">
         <field name="width" type="int" value="700" />
         <field name="height" type="int" value="400" />
         <field name="maxTicks" type="int" value="100" />
@@ -457,7 +457,7 @@
       <object type="java.util.ArrayList" id="45">
         <field name="elementData">
           <array type="java.lang.Object" length="22" id="46">
-            <object type="spinbattle.core.Planet" id="47">
+            <object type="hplovecraftspinbattle.core.Planet" id="47">
               <field name="position">
                 <object idref="11" />
               </field>
@@ -474,7 +474,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="48">
+            <object type="hplovecraftspinbattle.core.Planet" id="48">
               <field name="position">
                 <object idref="13" />
               </field>
@@ -491,7 +491,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="49">
+            <object type="hplovecraftspinbattle.core.Planet" id="49">
               <field name="position">
                 <object idref="15" />
               </field>
@@ -508,7 +508,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="50">
+            <object type="hplovecraftspinbattle.core.Planet" id="50">
               <field name="position">
                 <object idref="17" />
               </field>
@@ -525,7 +525,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="51">
+            <object type="hplovecraftspinbattle.core.Planet" id="51">
               <field name="position">
                 <object idref="19" />
               </field>
@@ -542,7 +542,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="52">
+            <object type="hplovecraftspinbattle.core.Planet" id="52">
               <field name="position">
                 <object idref="21" />
               </field>
@@ -559,7 +559,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="53">
+            <object type="hplovecraftspinbattle.core.Planet" id="53">
               <field name="position">
                 <object idref="23" />
               </field>
@@ -576,7 +576,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="54">
+            <object type="hplovecraftspinbattle.core.Planet" id="54">
               <field name="position">
                 <object idref="25" />
               </field>
@@ -593,7 +593,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="55">
+            <object type="hplovecraftspinbattle.core.Planet" id="55">
               <field name="position">
                 <object idref="27" />
               </field>
@@ -610,7 +610,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="56">
+            <object type="hplovecraftspinbattle.core.Planet" id="56">
               <field name="position">
                 <object idref="29" />
               </field>
@@ -627,7 +627,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="57">
+            <object type="hplovecraftspinbattle.core.Planet" id="57">
               <field name="position">
                 <object idref="31" />
               </field>
@@ -644,7 +644,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="58">
+            <object type="hplovecraftspinbattle.core.Planet" id="58">
               <field name="position">
                 <object idref="33" />
               </field>
@@ -661,7 +661,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="59">
+            <object type="hplovecraftspinbattle.core.Planet" id="59">
               <field name="position">
                 <object idref="35" />
               </field>
@@ -678,7 +678,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="60">
+            <object type="hplovecraftspinbattle.core.Planet" id="60">
               <field name="position">
                 <object idref="37" />
               </field>
@@ -695,7 +695,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="61">
+            <object type="hplovecraftspinbattle.core.Planet" id="61">
               <field name="position">
                 <object idref="39" />
               </field>
@@ -712,7 +712,7 @@
                 <object />
               </field>
             </object>
-            <object type="spinbattle.core.Planet" id="62">
+            <object type="hplovecraftspinbattle.core.Planet" id="62">
               <field name="position">
                 <object idref="41" />
               </field>
@@ -752,7 +752,7 @@
     </field>
     <field name="nPlayers" type="int" value="2" />
     <field name="actuators">
-      <array type="spinbattle.actuator.Actuator" length="2" id="63">
+      <array type="hplovecraftspinbattle.actuator.Actuator" length="2" id="63">
         <object />
         <object />
       </array>
