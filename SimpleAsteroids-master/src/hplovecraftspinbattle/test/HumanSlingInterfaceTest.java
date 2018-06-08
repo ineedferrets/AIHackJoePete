@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class HumanSlingInterfaceTest {
 
-    public static int ROLLOUT_DEPTH = 200;
+    public static int ROLLOUT_DEPTH = 10;
     public static double DISCOUNT_FACTOR = 1.20;
     public static double K = Math.sqrt(2);
 
@@ -64,20 +64,16 @@ public class HumanSlingInterfaceTest {
         //int launchPeriod = 400; // params.releasePeriod;
         waitUntilReady(view);
 
-        //SimplePlayerInterface mctsAgent = new GVGAIWrapper().setAgent(new Agent(gameState,null, Constants.playerTwo));
+        SimplePlayerInterface mctsAgent2 = getMCTSAgent(gameState, Constants.playerTwo);
 
-        //SimplePlayerInterface mctsAgent1 = getMCTSAgent(gameState, Constants.playerOne);
-
-        //SimplePlayerInterface mctsAgent2 = getMCTSAgent(gameState, Constants.playerTwo);
-
-        SimplePlayerInterface randomAgent = new RandomAgent();
+        //SimplePlayerInterface randomAgent = new getMCTSAgent(gameState, Constants.playerTwo);
 
         SimplePlayerInterface evoAgent = new HPLovecraftAgentFactory().getAgent().setVisual();
 
         int[] actions = new int[2];
 
         for (int i=0; i<=5000 && !gameState.isTerminal(); i++) {
-            actions[Constants.playerTwo] = randomAgent.getAction(gameState.copy(), Constants.playerTwo);
+            actions[Constants.playerTwo] = mctsAgent2.getAction(gameState.copy(), Constants.playerTwo);
             actions[Constants.playerOne] = evoAgent.getAction(gameState.copy(), Constants.playerOne);
             //actions[Constants.playerTwo] = mctsAgent2.getAction(gameState.copy(), Constants.playerTwo);
             //System.out.println(actions[Constants.playerTwo]);
